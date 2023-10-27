@@ -1,7 +1,7 @@
 class Solution {
 public:
     string longestPalindrome(string s) {
-        string result="";
+         string result="";
         int n=s.size();
         int max=0,start=0;
         for(int i=0;i<n;i++){
@@ -34,5 +34,4 @@ public:
         }
           return result;
     }
-  
 };
