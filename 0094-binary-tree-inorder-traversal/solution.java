@@ -14,7 +14,7 @@
  * }
  */
 class Solution {
-   static void inorderT(TreeNode root,List<Integer> list){
+     static void inorderT(TreeNode root,List<Integer> list){
         if(root==null){
             return;
         }
@@ -28,3 +28,4 @@ class Solution {
        return list;
     }
 }
+
