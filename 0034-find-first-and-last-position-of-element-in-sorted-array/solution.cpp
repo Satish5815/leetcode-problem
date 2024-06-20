@@ -1,27 +1,46 @@
 class Solution {
 public:
-    vector<int> searchRange(vector<int>& n, int t) {
-        vector<int> v;
+    int firstOccurance(vector<int> &nums,int target){
+        int low=0,high=nums.size()-1;
+        int result=-1;
+        while(low<=high){
+            int mid=low+(high-low)/2;
+            if(nums[mid]>target){
+                high=mid-1;
+            }else if(nums[mid]<target){
+                low=mid+1;
+            }else{
+                if(nums[mid]==target){
+                    result= mid;
+                    high=mid-1;
+                }
+            }
+        }
+        return result;
+    }
+    int lastOccurance(vector<int> &nums,int target){
+        int low=0,high=nums.size()-1;
+        int result=-1;
+        while(low<=high){
+             int mid=low+(high-low)/2;
+              if(nums[mid]>target){
+                high=mid-1;
+            }else if(nums[mid]<target){
+                low=mid+1;
+            }else{
+                if(nums[mid]==target){
+                   result= mid;
+                   low=mid+1;
+                }
+            }
+        }
         
-       if(n.empty()){
-           v.push_back(-1);
-           v.push_back(-1);
-       }
-        for(int i=0;i<n.size();i++){
-          if(n[i]==t){
-              v.push_back(i);
-          }
-        }
-        if(v.size()==1)
-            //int y=v[0];
-            v.push_back(v[0]);
-        if(v.size()>2){
-            v.erase(v.begin()+1,v.end()-1);
-        }
-        if(v.empty()){
-            v.push_back(-1);
-            v.push_back(-1);
-        }
-        return v;
+            return result;
+    }
+    vector<int> searchRange(vector<int>& nums, int target) {
+        vector<int> f;
+        f.push_back(firstOccurance(nums,target));
+        f.push_back(lastOccurance(nums,target));
+        return f;
     }
 };
