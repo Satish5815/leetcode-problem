@@ -11,14 +11,14 @@
  */
 class Solution {
 public:
-    bool isMirror(TreeNode* root1,TreeNode* root2){
-        if(root1==NULL && root2==NULL){
-            return true;
-        }
-        if(root1 && root2 && root1->val==root2->val){
-            return isMirror(root1->left,root2->right) && isMirror(root1->right,root2->left);
-        }
-        return false;
+    bool isMirror(TreeNode* r1,TreeNode* r2){
+       if(r1==NULL &&r2==NULL){
+        return true;
+       }
+       if(r1!=NULL && r2!=NULL){
+          return ((r1->val==r2->val) && isMirror(r1->left,r2->right)&& isMirror(r1->right,r2->left));
+       }
+       return false;
     }
     bool isSymmetric(TreeNode* root) {
         return isMirror(root,root);
