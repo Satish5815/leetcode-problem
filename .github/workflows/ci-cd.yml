@@ -1,11 +1,13 @@
 name: Sync Leetcode
 on:
-  workflow_dispatch: # Allows manual trigger
+  workflow_dispatch:
   schedule:
-    - cron: "0 8 * * 6" # Automatically runs every Saturday at 8:00 AM
+    - cron: "0 8 * * 6"
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write # Grants the workflow explicit permission to push commits
     steps:
       - name: Sync
         uses: joshcai/leetcode-sync@v1.7
